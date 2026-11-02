@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#74C0FC"/>
+      <stop offset="1" stop-color="#C5E6FF"/>
+    </linearGradient>
+    <radialGradient id="ocean" cx="36%" cy="30%" r="78%">
+      <stop offset="0" stop-color="#8FDBFF"/>
+      <stop offset="1" stop-color="#2F80ED"/>
+    </radialGradient>
+    <clipPath id="globe">
+      <circle cx="244" cy="276" r="150"/>
+    </clipPath>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#sky)"/>
+  <!-- bandeirinha -->
+  <line x1="376" y1="290" x2="392" y2="104" stroke="#8D5A2B" stroke-width="10" stroke-linecap="round"/>
+  <path d="M392 108 C410 96 430 120 450 108 L446 166 C426 178 408 154 388 166 Z" fill="#9B5DE5"/>
+  <path d="M407 152 V122 L431 152 V122" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="376" cy="282" r="17" fill="#5AB0FF"/>
+  <!-- planeta -->
+  <circle cx="244" cy="276" r="150" fill="url(#ocean)"/>
+  <g clip-path="url(#globe)" fill="#7ED957" stroke="#4CAF50" stroke-width="6" stroke-linejoin="round">
+    <path d="M128 168 C158 140 204 148 212 178 C220 206 192 216 196 244 C200 266 224 274 216 302 C208 332 180 362 166 382 C158 354 162 324 146 300 C130 276 98 260 102 226 C106 198 112 184 128 168 Z"/>
+    <path d="M282 136 C316 124 362 148 378 182 C390 210 366 222 346 218 C330 214 326 238 338 258 C350 282 338 312 314 332 C294 348 280 328 284 300 C288 276 268 264 272 238 C276 214 256 198 260 174 C264 154 270 140 282 136 Z"/>
+  </g>
+  <ellipse cx="184" cy="180" rx="46" ry="23" fill="#fff" opacity="0.35" transform="rotate(-28 184 180)"/>
+  <!-- rostinho -->
+  <ellipse cx="200" cy="268" rx="21" ry="26" fill="#fff"/>
+  <ellipse cx="288" cy="268" rx="21" ry="26" fill="#fff"/>
+  <circle cx="204" cy="272" r="13.5" fill="#1F2A44"/>
+  <circle cx="292" cy="272" r="13.5" fill="#1F2A44"/>
+  <circle cx="209" cy="265" r="4.6" fill="#fff"/>
+  <circle cx="297" cy="265" r="4.6" fill="#fff"/>
+  <ellipse cx="164" cy="310" rx="19" ry="12" fill="#FF8FB1" opacity="0.8"/>
+  <ellipse cx="324" cy="310" rx="19" ry="12" fill="#FF8FB1" opacity="0.8"/>
+  <path d="M212 306 Q244 352 276 306 Z" fill="#7A2E46" stroke="#7A2E46" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M228 328 Q244 318 260 328 Q252 342 244 342 Q236 342 228 328 Z" fill="#FF7A9C"/>
+</svg>
