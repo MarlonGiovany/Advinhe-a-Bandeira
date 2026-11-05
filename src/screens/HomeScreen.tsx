@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Background from '../components/Background';
 import Icon from '../components/Icon';
 import Mascot from '../components/Mascot';
+import ResetDialog from '../components/ResetDialog';
 import SoundButton from '../components/SoundButton';
 import WavyText from '../components/WavyText';
 import { COUNTRIES, LEVELS } from '../data/countries';
@@ -13,6 +14,7 @@ type Props = {
   onToggleSound: () => void;
   onPlay: () => void;
   onAlbum: () => void;
+  onReset: () => void;
 };
 
 const canFullscreen = typeof document !== 'undefined' && document.fullscreenEnabled === true;
@@ -27,10 +29,12 @@ function useIsFullscreen(): boolean {
   return full;
 }
 
-export default function HomeScreen({ progress, soundOn, onToggleSound, onPlay, onAlbum }: Props) {
+export default function HomeScreen({ progress, soundOn, onToggleSound, onPlay, onAlbum, onReset }: Props) {
   const isFullscreen = useIsFullscreen();
+  const [confirming, setConfirming] = useState(false);
   const found = COUNTRIES.filter((c) => progress.discovered[c.code]).length;
   const level = LEVELS[progress.level - 1];
+  const hasProgress = progress.stars > 0 || progress.level > 1 || progress.master || found > 0;
 
   const toggleFullscreen = () => {
     if (document.fullscreenElement) void document.exitFullscreen().catch(() => {});
@@ -65,7 +69,7 @@ export default function HomeScreen({ progress, soundOn, onToggleSound, onPlay, o
             <span className="title-top">Adivinhe a</span>
             <span className="title-mid">Bandeira</span>
             <span className="title-name">
-              <span className="title-do">do</span> <WavyText text="NIKOLASSSS!" />
+              <span className="title-do">do</span> <WavyText text="Nicolas!" />
             </span>
           </h1>
 
@@ -87,8 +91,25 @@ export default function HomeScreen({ progress, soundOn, onToggleSound, onPlay, o
             <span className="dot-sep" aria-hidden="true">•</span>
             <span>{progress.master ? '👑 Mestre das Bandeiras' : `${level.emoji} Nível ${progress.level}`}</span>
           </p>
+
+          {hasProgress && (
+            <button type="button" className="restart-link" onClick={() => setConfirming(true)}>
+              <Icon name="restart" />
+              Recomeçar do zero
+            </button>
+          )}
         </div>
       </main>
+
+      {confirming && (
+        <ResetDialog
+          onCancel={() => setConfirming(false)}
+          onConfirm={() => {
+            setConfirming(false);
+            onReset();
+          }}
+        />
+      )}
     </div>
   );
 }

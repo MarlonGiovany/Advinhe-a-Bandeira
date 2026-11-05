@@ -52,6 +52,11 @@ export default function App() {
     if (next) sfx.tap();
   };
 
+  const resetProgress = () => {
+    sfx.tap();
+    setProgress(DEFAULT_PROGRESS);
+  };
+
   const registerCorrect = (code: string) => {
     const result = applyCorrect(progress, code);
     setProgress(result.progress);
@@ -75,7 +80,7 @@ export default function App() {
       <AlbumScreen
         progress={progress}
         onBack={() => go('home')}
-        onReset={() => setProgress(DEFAULT_PROGRESS)}
+        onReset={resetProgress}
       />
     );
   }
@@ -87,6 +92,7 @@ export default function App() {
       onToggleSound={toggleSound}
       onPlay={() => go('play')}
       onAlbum={() => go('album')}
+      onReset={resetProgress}
     />
   );
 }

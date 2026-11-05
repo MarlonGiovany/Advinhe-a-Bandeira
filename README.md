@@ -1,9 +1,9 @@
-# 🌎🚩 Adivinhe a Bandeira do Nikolassss!
+# 🌎🚩 Adivinhe a Bandeira do Nicolas!
 
 Jogo educativo de bandeiras para crianças, feito para ser usado principalmente em **tablet**, direto no navegador.
 Uma bandeira grande aparece na tela, a criança toca em uma de **três alternativas** e:
 
-- **Acertou:** "PARABÉÉÉNS, NIKOLASSSS!!! 🥳🎉 Você acertou!" com confetes, estrelas e o mascote pulando.
+- **Acertou:** "Parabéns Nicolas!!!! 🥳🎉🏆 Você acertou!" com confetes, estrelas e o mascote pulando.
 - **Errou:** "Quaseeem! 😁 Tente novamente, outro país!" — sem perder pontos; a opção errada fica apagada e ele tenta de novo.
 
 ## Como funciona
@@ -39,7 +39,7 @@ Abra o endereço que aparecer (ex.: `http://localhost:5173`). Para testar no tab
    ```
 
    ```bash
-   git add . && git commit -m "Adivinhe a Bandeira do Nikolassss!"
+   git add . && git commit -m "Adivinhe a Bandeira do Nicolas!"
    ```
 
    ```bash

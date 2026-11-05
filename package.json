@@ -2,7 +2,7 @@
   "name": "adivinhe-a-bandeira-do-nikolas",
   "private": true,
   "version": "1.0.0",
-  "description": "Adivinhe a Bandeira do Nikolassss! — jogo educativo de bandeiras para tablets.",
+  "description": "Adivinhe a Bandeira do Nicolas! — jogo educativo de bandeiras para tablets.",
   "type": "module",
   "engines": {
     "node": ">=20.19"

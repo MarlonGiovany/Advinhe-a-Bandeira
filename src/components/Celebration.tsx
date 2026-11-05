@@ -29,7 +29,7 @@ export default function Celebration({ result, country, onNext }: Props) {
         </div>
 
         <h2 id="celebrate-title" className="celebrate-title">
-          <WavyText text="PARABÉÉÉNS, NIKOLASSSS!!!" /> <span className="emoji">🥳🎉</span>
+          <WavyText text="Parabéns Nicolas!!!!" /> <span className="emoji">🥳🎉🏆</span>
         </h2>
         <p className="celebrate-sub">Você acertou!</p>
 

@@ -34,7 +34,7 @@ export default function Mascot({ className = '' }: { className?: string }) {
           <line x1="181" y1="128" x2="189" y2="30" stroke="#8D5A2B" strokeWidth="5" strokeLinecap="round" />
           <g className="mascot-flag-cloth">
             <path d="M189 32 C198 26 208 38 218 32 L216 62 C206 68 197 56 187 62 Z" fill="#9B5DE5" />
-            {/* "N" de Nikolas: uma bandeira inventada, para não confundir com país de verdade */}
+            {/* "N" de Nicolas: uma bandeira inventada, para não confundir com país de verdade */}
             <path d="M196.5 55 V39 L209.5 55 V39" fill="none" stroke="#fff" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
           </g>
         </g>
