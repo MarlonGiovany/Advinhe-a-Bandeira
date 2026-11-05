@@ -604,6 +604,10 @@ img {
     0 6px 14px rgba(31, 42, 68, 0.22);
 }
 
+.question .question-capital {
+  animation: popIn 0.5s var(--bounce) backwards;
+}
+
 .flag-area {
   grid-area: flag;
   min-height: 0;
@@ -933,6 +937,19 @@ img {
 
 .answer-chip strong {
   color: var(--blue-d);
+}
+
+.capital-chip {
+  margin: 0;
+  padding: 8px 22px;
+  border-radius: 999px;
+  background: #f4ecff;
+  font-size: clamp(1.05rem, 3vmin, 1.6rem);
+  animation: popIn 0.5s var(--bounce) 0.25s backwards;
+}
+
+.capital-chip strong {
+  color: var(--purple-d);
 }
 
 .fact {

@@ -5,7 +5,7 @@ import Celebration from '../components/Celebration';
 import TopBar from '../components/TopBar';
 import { countryByCode, type Country } from '../data/countries';
 import { celebrateCorrect, celebrateLevelUp } from '../game/confetti';
-import { GameSession, type CorrectResult, type Round } from '../game/engine';
+import { GameSession, shuffle, type CorrectResult, type Round } from '../game/engine';
 import { sfx } from '../game/sound';
 import type { Progress } from '../game/storage';
 
@@ -23,6 +23,10 @@ export default function GameScreen({ progress, soundOn, onToggleSound, onHome, o
   const [wrong, setWrong] = useState<string[]>([]);
   const [solved, setSolved] = useState(false);
   const [celebration, setCelebration] = useState<CorrectResult | null>(null);
+  // Depois de acertar a bandeira, ele precisa acertar a capital do mesmo país.
+  const [stage, setStage] = useState<'flag' | 'capital'>('flag');
+  const [capitalOptions, setCapitalOptions] = useState<Country[]>([]);
+  const [pending, setPending] = useState<CorrectResult | null>(null);
   const [oopsId, setOopsId] = useState(0);
   // Os botões só aparecem depois que a bandeira terminou de carregar.
   const [flagReady, setFlagReady] = useState(false);
@@ -63,10 +67,22 @@ export default function GameScreen({ progress, soundOn, onToggleSound, onHome, o
       celebrateCorrect();
       navigator.vibrate?.([30, 40, 30]);
 
-      const result = onCorrect(country.code);
+      if (stage === 'flag') {
+        // A estrela já fica guardada; agora vem a pergunta da capital.
+        setPending(onCorrect(country.code));
+        later(() => {
+          setCapitalOptions(shuffle(round.options));
+          setWrong([]);
+          setSolved(false);
+          setStage('capital');
+        }, 900);
+        return;
+      }
+
       later(() => {
-        setCelebration(result);
-        if (result.leveledUp || result.becameMaster) {
+        if (!pending) return;
+        setCelebration(pending);
+        if (pending.leveledUp || pending.becameMaster) {
           sfx.levelUp();
           celebrateLevelUp();
         }
@@ -85,6 +101,9 @@ export default function GameScreen({ progress, soundOn, onToggleSound, onHome, o
     setWrong([]);
     setSolved(false);
     setCelebration(null);
+    setStage('flag');
+    setCapitalOptions([]);
+    setPending(null);
   };
 
   // Se uma bandeira não carregar de jeito nenhum, troca por outra sem a criança perceber.
@@ -101,13 +120,19 @@ export default function GameScreen({ progress, soundOn, onToggleSound, onHome, o
 
       <main className="stage">
         <div className="question">
-          <h1>
-            Que país é esse? <span aria-hidden="true">🤔</span>
-          </h1>
+          {stage === 'flag' ? (
+            <h1>
+              Que país é esse? <span aria-hidden="true">🤔</span>
+            </h1>
+          ) : (
+            <h1 key="capital" className="question-capital">
+              Qual é a capital {round.answer.de} {round.answer.name}? <span aria-hidden="true">🏛️</span>
+            </h1>
+          )}
           {oopsId !== 0 && (
             <div className="oops" key={oopsId} role="status">
               <strong>Quaseeem! 😁</strong>
-              <span>Tente novamente, outro país!</span>
+              <span>{stage === 'flag' ? 'Tente novamente, outro país!' : 'Tente novamente, outra capital!'}</span>
             </div>
           )}
         </div>
@@ -123,8 +148,8 @@ export default function GameScreen({ progress, soundOn, onToggleSound, onHome, o
           </div>
         </div>
 
-        <div className={`options ${flagReady ? '' : 'is-waiting'}`} role="group" aria-label="Escolha o país">
-          {round.options.map((c, i) => {
+        <div className={`options ${flagReady ? '' : 'is-waiting'}`} role="group" aria-label={stage === 'flag' ? 'Escolha o país' : 'Escolha a capital'}>
+          {(stage === 'flag' ? round.options : capitalOptions).map((c, i) => {
             const isWrong = wrong.includes(c.code);
             const isRight = solved && c.code === round.answer.code;
             const classes = ['btn3d', 'option', `opt-${i}`];
@@ -133,7 +158,7 @@ export default function GameScreen({ progress, soundOn, onToggleSound, onHome, o
             if (solved && !isRight) classes.push('is-faded');
             return (
               <button
-                key={`${round.id}-${c.code}`}
+                key={`${round.id}-${stage}-${c.code}`}
                 type="button"
                 className={classes.join(' ')}
                 style={{ animationDelay: `${i * 80}ms` }}
@@ -141,7 +166,7 @@ export default function GameScreen({ progress, soundOn, onToggleSound, onHome, o
                 onClick={() => pick(c)}
               >
                 {isRight && <span className="option-badge" aria-hidden="true">✅</span>}
-                <span className="option-label">{c.name}</span>
+                <span className="option-label">{stage === 'flag' ? c.name : c.capital}</span>
               </button>
             );
           })}

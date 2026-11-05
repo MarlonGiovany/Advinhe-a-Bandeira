@@ -31,7 +31,7 @@ export default function Celebration({ result, country, onNext }: Props) {
         <h2 id="celebrate-title" className="celebrate-title">
           <WavyText text="Parabéns Nicolas!!!!" /> <span className="emoji">🥳🎉🏆</span>
         </h2>
-        <p className="celebrate-sub">Você acertou!</p>
+        <p className="celebrate-sub">Você acertou a bandeira e a capital!</p>
 
         <div className="answer-chip">
           <img src={country.flag} alt="" draggable={false} />
@@ -39,6 +39,10 @@ export default function Celebration({ result, country, onNext }: Props) {
             É a bandeira {country.de} <strong>{country.name}</strong>!
           </span>
         </div>
+
+        <p className="capital-chip">
+          <span aria-hidden="true">🏛️</span> A capital é <strong>{country.capital}</strong>!
+        </p>
 
         <p className="fact">
           <span aria-hidden="true">💡 </span>
