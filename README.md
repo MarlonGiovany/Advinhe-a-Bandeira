@@ -8,8 +8,8 @@ Uma bandeira grande aparece na tela, a criança toca em uma de **três alternati
 
 ## Como funciona
 
-- **40 países em 5 níveis.** O Nível 1 tem as bandeiras famosas (Brasil, Argentina, Estados Unidos, França, Itália, Japão, Portugal e Alemanha).
-- A cada **8 acertos** sobe de nível (com troféu e chuva de confetes). Depois do Nível 5 vira **Mestre das Bandeiras** e todas aparecem misturadas.
+- **58 países em 6 níveis.** O Nível 1 tem as bandeiras famosas (Brasil, Argentina, Estados Unidos, França, Itália, Japão, Portugal e Alemanha).
+- A cada **8 acertos** sobe de nível (com troféu e chuva de confetes). Do Nível 2 em diante entram também alguns países menos conhecidos, e o Nível 6 é só de **bandeiras raras**. Depois do Nível 6 vira **Mestre das Bandeiras** e todas aparecem misturadas.
 - **Dificuldade gradual:** nos primeiros níveis as alternativas erradas são bandeiras bem diferentes da certa; depois vão aparecendo bandeiras parecidas.
 - As bandeiras saem de um "baralho" embaralhado, então não se repetem muito. A resposta certa muda de posição e nunca fica 3 vezes seguidas no mesmo lugar.
 - **Meu Álbum:** cada bandeira acertada vira uma figurinha.

@@ -33,7 +33,8 @@ export const LEVELS: readonly Level[] = [
   { id: 2, title: 'Volta ao mundo', emoji: '✈️' },
   { id: 3, title: 'Explorador', emoji: '🧭' },
   { id: 4, title: 'Aventureiro', emoji: '🚀' },
-  { id: 5, title: 'Desafio final', emoji: '👑' },
+  { id: 5, title: 'Grande desafio', emoji: '🏅' },
+  { id: 6, title: 'Bandeiras raras', emoji: '💎' },
 ];
 
 export const MAX_LEVEL = LEVELS.length;
@@ -63,6 +64,9 @@ const RAW: RawCountry[] = [
   { code: 'kr', name: 'Coreia do Sul', de: 'da', level: 2, capital: 'Seul', pattern: 'disc-symbols', colors: ['white', 'red', 'blue', 'black'], fact: 'O círculo do meio é metade vermelho e metade azul!' },
   { code: 'uy', name: 'Uruguai', de: 'do', level: 2, capital: 'Montevidéu', pattern: 'stripes-sun', colors: ['white', 'lightblue', 'yellow'], fact: 'O Uruguai também tem um Sol de Maio, igual à Argentina! ☀️' },
   { code: 'ch', name: 'Suíça', de: 'da', level: 2, capital: 'Berna', pattern: 'cross', colors: ['red', 'white'], fact: 'A Suíça é famosa pelos chocolates e pelas montanhas com neve! 🏔️' },
+  // Menos conhecidos, para começar a deixar o jogo mais interessante
+  { code: 've', name: 'Venezuela', de: 'da', level: 2, capital: 'Caracas', pattern: 'h-tricolor-stars', colors: ['yellow', 'blue', 'red', 'white'], fact: 'Tem 8 estrelinhas brancas em forma de arco! A Venezuela é vizinha do Brasil.' },
+  { code: 'ng', name: 'Nigéria', de: 'da', level: 2, capital: 'Abuja', pattern: 'v-tricolor', colors: ['green', 'white'], fact: 'Verde, branco e verde! O verde lembra a natureza e o branco, a paz.' },
 
   // Nível 3
   { code: 'cl', name: 'Chile', de: 'do', level: 3, capital: 'Santiago', pattern: 'star-canton', colors: ['white', 'red', 'blue'], fact: 'O Chile é um país bem compridinho e magrinho no mapa!' },
@@ -73,6 +77,8 @@ const RAW: RawCountry[] = [
   { code: 'se', name: 'Suécia', de: 'da', level: 3, capital: 'Estocolmo', pattern: 'nordic-cross', colors: ['blue', 'yellow'], fact: 'Uma cruz amarela no meio do azul!' },
   { code: 'za', name: 'África do Sul', de: 'da', level: 3, capital: 'Pretória', pattern: 'y-shape', colors: ['red', 'blue', 'green', 'black', 'yellow', 'white'], fact: 'Ela tem seis cores! É uma das bandeiras mais coloridas do mundo.' },
   { code: 'eg', name: 'Egito', de: 'do', level: 3, capital: 'Cairo', pattern: 'h-tricolor-emblem', colors: ['red', 'white', 'black', 'yellow'], fact: 'No meio tem uma águia dourada. E no Egito ficam as pirâmides!' },
+  { code: 'is', name: 'Islândia', de: 'da', level: 3, capital: 'Reykjavík', pattern: 'nordic-cross', colors: ['blue', 'white', 'red'], fact: 'Na Islândia tem vulcões e gêiseres que soltam jatos de água quente para o alto!' },
+  { code: 'vn', name: 'Vietnã', de: 'do', level: 3, capital: 'Hanói', pattern: 'star-center', colors: ['red', 'yellow'], fact: 'Uma estrela amarela de cinco pontas no meio do vermelho! ⭐' },
 
   // Nível 4
   { code: 'pe', name: 'Peru', de: 'do', level: 4, capital: 'Lima', pattern: 'v-tricolor', colors: ['red', 'white'], fact: 'No Peru fica Machu Picchu, uma cidade antiga lá no alto das montanhas!' },
@@ -83,6 +89,8 @@ const RAW: RawCountry[] = [
   { code: 'ma', name: 'Marrocos', de: 'do', level: 4, capital: 'Rabat', pattern: 'star-center', colors: ['red', 'green'], fact: 'A estrela verde do meio tem cinco pontas!' },
   { code: 'jm', name: 'Jamaica', de: 'da', level: 4, capital: 'Kingston', pattern: 'saltire', colors: ['green', 'yellow', 'black'], fact: 'É a única bandeira de país sem vermelho, sem branco e sem azul!' },
   { code: 'ie', name: 'Irlanda', de: 'da', level: 4, capital: 'Dublin', pattern: 'v-tricolor', colors: ['green', 'white', 'orange'], fact: 'Verde, branco e laranja! O trevo é um símbolo da Irlanda. ☘️' },
+  { code: 'np', name: 'Nepal', de: 'do', level: 4, capital: 'Katmandu', pattern: 'pennants', colors: ['red', 'blue', 'white'], fact: 'É a única bandeira de país que não é retangular: são dois triângulos! 🏔️' },
+  { code: 'bt', name: 'Butão', de: 'do', level: 4, capital: 'Thimphu', pattern: 'diagonal-emblem', colors: ['yellow', 'orange', 'white'], fact: 'Tem um dragão branco no meio! O Butão é a "Terra do Dragão do Trovão". 🐉' },
 
   // Nível 5
   { code: 'nl', name: 'Holanda', de: 'da', level: 5, capital: 'Amsterdã', pattern: 'h-tricolor', colors: ['red', 'white', 'blue'], fact: 'Na Holanda tem muitos moinhos de vento e tulipas! 🌷' },
@@ -93,6 +101,20 @@ const RAW: RawCountry[] = [
   { code: 'ke', name: 'Quênia', de: 'do', level: 5, capital: 'Nairóbi', pattern: 'h-stripes-shield', colors: ['black', 'red', 'green', 'white'], fact: 'No meio tem um escudo e duas lanças!' },
   { code: 'cu', name: 'Cuba', de: 'de', level: 5, capital: 'Havana', pattern: 'triangle-stripes', colors: ['blue', 'white', 'red'], fact: 'Um triângulo vermelho com uma estrela branca!' },
   { code: 'bo', name: 'Bolívia', de: 'da', level: 5, capital: 'Sucre', pattern: 'h-tricolor-emblem', colors: ['red', 'yellow', 'green'], fact: 'Vermelho, amarelo e verde! A Bolívia é vizinha do Brasil.' },
+  { code: 'mn', name: 'Mongólia', de: 'da', level: 5, capital: 'Ulan Bator', pattern: 'v-tricolor-emblem', colors: ['red', 'blue', 'yellow'], fact: 'Muitas famílias da Mongólia moram em tendas redondas chamadas iurtas!' },
+  { code: 'sc', name: 'Seychelles', de: 'de', level: 5, capital: 'Vitória', pattern: 'rays', colors: ['blue', 'yellow', 'red', 'white', 'green'], fact: 'Cinco faixas coloridas saem do cantinho, como raios de sol! 🌈' },
+
+  // Nível 6 — bandeiras raras, de países pouco conhecidos
+  { code: 'kz', name: 'Cazaquistão', de: 'do', level: 6, capital: 'Astana', pattern: 'sun-bird', colors: ['lightblue', 'yellow'], fact: 'Tem um sol dourado e uma águia voando no céu azul! 🦅' },
+  { code: 'pg', name: 'Papua-Nova Guiné', de: 'de', level: 6, capital: 'Port Moresby', pattern: 'diagonal-stars', colors: ['red', 'black', 'yellow', 'white'], fact: 'Tem uma ave-do-paraíso dourada e as estrelas do Cruzeiro do Sul!' },
+  { code: 'ki', name: 'Kiribati', de: 'de', level: 6, capital: 'Tarawa do Sul', pattern: 'sun-bird-waves', colors: ['red', 'yellow', 'blue', 'white'], fact: 'Um pássaro voando sobre o sol nascente e as ondas do mar! 🌅' },
+  { code: 'dm', name: 'Dominica', de: 'da', level: 6, capital: 'Roseau', pattern: 'cross-disc', colors: ['green', 'yellow', 'black', 'white', 'red'], fact: 'Tem um papagaio no meio! Ele se chama sisserou e só vive lá. 🦜' },
+  { code: 'bz', name: 'Belize', de: 'de', level: 6, capital: 'Belmopan', pattern: 'h-stripes-disc', colors: ['blue', 'red', 'white'], fact: 'No brasão tem dois lenhadores e uma árvore de mogno! 🌳' },
+  { code: 'cy', name: 'Chipre', de: 'de', level: 6, capital: 'Nicósia', pattern: 'map', colors: ['white', 'orange', 'green'], fact: 'O desenho do meio é o mapa da ilha de Chipre, com dois raminhos de oliveira!' },
+  { code: 'la', name: 'Laos', de: 'do', level: 6, capital: 'Vientiane', pattern: 'h-tricolor-disc', colors: ['red', 'blue', 'white'], fact: 'A bola branca parece uma lua cheia em cima de um rio! 🌕' },
+  { code: 'bb', name: 'Barbados', de: 'de', level: 6, capital: 'Bridgetown', pattern: 'v-tricolor-emblem', colors: ['blue', 'yellow', 'black'], fact: 'No meio tem um tridente, o garfo de três pontas do deus do mar! 🔱' },
+  { code: 'ug', name: 'Uganda', de: 'de', level: 6, capital: 'Kampala', pattern: 'h-stripes-disc', colors: ['black', 'yellow', 'red', 'white'], fact: 'No meio tem um grou-coroado, um pássaro com uma coroa de penas!' },
+  { code: 'mv', name: 'Maldivas', de: 'das', level: 6, capital: 'Malé', pattern: 'crescent-box', colors: ['red', 'green', 'white'], fact: 'Uma lua branca dentro de um retângulo verde, com borda vermelha! 🌙' },
 ];
 
 export const COUNTRIES: readonly Country[] = RAW.map((c) => ({ ...c, flag: flagUrl(c.code) }));
